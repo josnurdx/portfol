@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nur Hasan | Portfolio</title>
+  <style>
+    /* Basic Reset and Typography */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color:#333; scroll-behavior: smooth; }
+    a { text-decoration:none; color: inherit; }
+
+    /* Hero Section */
+    header {
+      background: #282c34; color: white; height:100vh;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; padding: 20px;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    header h1 span { color:#61dafb; }
+    header p { font-size:1.2rem; margin-bottom:20px; }
+    .btn {
+      padding:12px 24px; background:#61dafb; color:#282c34;
+      border:none; border-radius:5px; font-size:1rem;
+      cursor:pointer; transition: box-shadow 0.3s;
+    }
+    .btn:hover { box-shadow: 0 0 15px rgba(97,218,251,0.7); }
+
+    /* Sections */
+    section { padding:60px 20px; max-width: 1000px; margin: auto; opacity:0; transform: translateY(30px); transition: 0.6s; }
+    section.reveal { opacity:1; transform: translateY(0); }
+
+    #about h2, #skills h2, #projects h2, #contact h2 { margin-bottom:20px; font-size:2rem; }
+
+    /* Skills Grid */
+    .skills-list { display:flex; flex-wrap:wrap; gap:10px; }
+    .skills-list span {
+      background:#f0f0f0; padding:8px 12px; border-radius:4px;
+      transition: background 0.3s;
+    }
+    .skills-list span:hover { background:#61dafb; color:white; }
+
+    /* Projects Grid */
+    .projects-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+    .project-card {
+      background:#fafafa; padding:20px; border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+
+    /* Footer */
+    footer { text-align:center; padding:20px; background:#222; color:#ddd; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hi, I’m <span>Nur Hasan</span></h1>
+  <p>Full Stack Web Developer | C++ Programmer</p>
+  <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">View My Work</button>
+  <p style="margin-top:10px;"> LinkedIn: <a href="https://www.linkedin.com/in/nur-hasan-145365379" target="_blank" style="color:#61dafb;">nur-hasan-145365379</a></p>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am Nur Hasan, a B.Tech CSE student based in Kolkata, passionate about web development, JavaScript, and C++ programming.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-list">
+    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>C++</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>A responsive, animated portfolio website built with HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project-card">
+      <h3>Weather App</h3>
+      <p>Real-time weather forecast app using JavaScript and an external API.</p>
+    </div>
+    <!-- আরও project cards যোগ করতে পারো -->
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: infoummehasan@gmail.com</p>
+</section>
+
+<footer>
+  <p>© 2025 Nur Hasan. All rights reserved.</p>
+</footer>
+
+<script>
+  // Reveal sections on scroll
+  const sections = document.querySelectorAll('section');
+  const revealOnScroll = entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('reveal');
+    });
+  };
+  const observer = new IntersectionObserver(revealOnScroll, { threshold: 0.1 });
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
